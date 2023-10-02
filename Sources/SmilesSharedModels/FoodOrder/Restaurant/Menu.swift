@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import SmilesUtilities
 
 public class Menu: NSObject, Codable {
     

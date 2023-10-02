@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import SmilesUtilities
 
 public class BOGODetailsResponseLifestyleOffer: Codable {
     public let autoRenewable: Bool?

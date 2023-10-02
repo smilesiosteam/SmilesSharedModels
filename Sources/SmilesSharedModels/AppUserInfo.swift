@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import SmilesUtilities
 
 @objc public class AppUserInfo: NSObject, Codable {
     
