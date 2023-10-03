@@ -15,7 +15,7 @@ let package = Package(
             targets: ["SmilesSharedModels"]),
     ],
     dependencies: [
-        .package(url: "https://github.com/smilesiosteam/SmilesUtilities.git", branch: "RemovalSharedModels")
+        .package(url: "https://github.com/smilesiosteam/SmilesUtilities.git", branch: "shared_Models")
     ],
     targets: [
         // Targets are the basic building blocks of a package. A target can define a module or a test suite.

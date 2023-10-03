@@ -59,7 +59,7 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/smilesiosteam/SmilesUtilities.git",
       "state" : {
-        "branch" : "RemovalSharedModels",
+        "branch" : "shared_Models",
         "revision" : "476eebf3f636d33d70b62afac4fab6ff8746c134"
       }
     }
