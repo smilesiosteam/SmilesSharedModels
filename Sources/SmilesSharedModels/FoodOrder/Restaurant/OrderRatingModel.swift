@@ -7,9 +7,8 @@
 //
 
 import Foundation
-import NetworkingLayer
 import SmilesUtilities
-import SmilesSharedModels
+
 
 class OrderRatingRequestModel: Codable {
     var ratingType: String?
