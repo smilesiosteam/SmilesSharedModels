@@ -10,7 +10,7 @@ import Foundation
 import SmilesUtilities
 
 
-class OrderRatingRequestModel: Codable {
+public class OrderRatingRequestModel: Codable {
     var ratingType: String?
     var contentType: String?
     var isLiveTracking: Bool?
@@ -18,7 +18,7 @@ class OrderRatingRequestModel: Codable {
     var userInfo: AppUserInfo?
 
     
-    enum CodingKeys: String, CodingKey {
+    public enum CodingKeys: String, CodingKey {
         case ratingType
         case contentType
         case isLiveTracking
@@ -26,7 +26,7 @@ class OrderRatingRequestModel: Codable {
         case userInfo
     }
     
-    required init(from decoder: Decoder) throws {
+    public required init(from decoder: Decoder) throws {
         let values = try decoder.container(keyedBy: CodingKeys.self)
         ratingType = try values.decodeIfPresent(String.self, forKey: .ratingType)
         contentType = try values.decodeIfPresent(String.self, forKey: .contentType)
@@ -37,7 +37,7 @@ class OrderRatingRequestModel: Codable {
     
     init() {}
     
-    func asDictionary(dictionary: [String: Any]) -> [String: Any] {
+    public func asDictionary(dictionary: [String: Any]) -> [String: Any] {
         let encoder = DictionaryEncoder()
         guard let encoded = try? encoder.encode(self) as [String: Any] else {
             return [:]
@@ -47,7 +47,7 @@ class OrderRatingRequestModel: Codable {
 }
 
 // MARK: - OrderRatingResponse
-class OrderRatingResponse: BaseMainResponse {
+public class OrderRatingResponse: BaseMainResponse {
     let title: String?
     let orderRating: [OrderRating]?
     let orderDetails: OrderDetails?
@@ -55,7 +55,7 @@ class OrderRatingResponse: BaseMainResponse {
     let isAccuralPointsAllowed, itemLevelRatingEnabled: Bool?
     let ratingStatus: Bool?
     
-    enum CodingKeys: String, CodingKey {
+    public enum CodingKeys: String, CodingKey {
         case title
         case orderRating
         case orderDetails
@@ -64,7 +64,7 @@ class OrderRatingResponse: BaseMainResponse {
         case itemLevelRatingEnabled
         case ratingStatus
     }
-    required init(from decoder: Decoder) throws {
+    public required init(from decoder: Decoder) throws {
         let values = try decoder.container(keyedBy: CodingKeys.self)
         title = try values.decodeIfPresent(String.self, forKey: .title)
         orderRating = try values.decodeIfPresent([OrderRating].self, forKey: .orderRating)
@@ -79,7 +79,7 @@ class OrderRatingResponse: BaseMainResponse {
 }
 
 // MARK: - OrderDetails
-class OrderDetails: Codable {
+public class OrderDetails: Codable {
     let orderNumber, restaurantName, orderType, restaurantID: String?
     let driverName, deliveredTime: String?
     let orderId: Int?
@@ -91,7 +91,7 @@ class OrderDetails: Codable {
         case orderId
     }
 
-    init(orderNumber: String?, restaurantName: String?, orderType: String?, restaurantID: String?, driverName: String?, deliveredTime: String?, orderId: Int?) {
+    public init(orderNumber: String?, restaurantName: String?, orderType: String?, restaurantID: String?, driverName: String?, deliveredTime: String?, orderId: Int?) {
         self.orderNumber = orderNumber
         self.restaurantName = restaurantName
         self.orderType = orderType
@@ -103,20 +103,20 @@ class OrderDetails: Codable {
 }
 
 // MARK: - OrderItemDetail
-class OrderItemDetail: Codable {
+public class OrderItemDetail: Codable {
     let itemName: String?
     let itemID: String?
     let userItemRating: Double?
     let itemImage: String?
     let rating: [Rating]?
 
-    enum CodingKeys: String, CodingKey {
+    public enum CodingKeys: String, CodingKey {
         case itemName
         case itemID = "itemId"
         case userItemRating, itemImage, rating
     }
 
-    init(itemName: String?, itemID: String?, userItemRating: Double?, itemImage: String?, rating: [Rating]?) {
+    public init(itemName: String?, itemID: String?, userItemRating: Double?, itemImage: String?, rating: [Rating]?) {
         self.itemName = itemName
         self.itemID = itemID
         self.userItemRating = userItemRating
@@ -126,19 +126,19 @@ class OrderItemDetail: Codable {
 }
 
 // MARK: - Rating
-class Rating: Codable {
+public class Rating: Codable {
     let id: Int?
     let ratingFeedback: String?
     let ratingColor: String?
     let ratingImage: String?
 
-    enum CodingKeys: String, CodingKey {
+    public enum CodingKeys: String, CodingKey {
         case id
         case ratingFeedback
         case ratingColor
         case ratingImage
     }
-    init(id: Int?, ratingFeedback: String?, ratingColor: String?, ratingImage: String?) {
+    public init(id: Int?, ratingFeedback: String?, ratingColor: String?, ratingImage: String?) {
         self.id = id
         self.ratingFeedback = ratingFeedback
         self.ratingColor = ratingColor
@@ -147,7 +147,7 @@ class Rating: Codable {
 }
 
 // MARK: - OrderRating
-class OrderRating: Codable {
+public class OrderRating: Codable {
     var ratingType: String?
     var userRating: Int?
     var ratingTitle: String?
@@ -156,7 +156,7 @@ class OrderRating: Codable {
     var rating: [Rating]?
     var description: String?
 
-    enum CodingKeys: String, CodingKey {
+    public enum CodingKeys: String, CodingKey {
         case ratingType
         case userRating
         case ratingTitle
@@ -166,7 +166,7 @@ class OrderRating: Codable {
     }
 
     
-    init(ratingType: String?, userRating: Int?, title: String?, ratingTitle: String?, image: String?, rating: [Rating]?, description: String?) {
+    public init(ratingType: String?, userRating: Int?, title: String?, ratingTitle: String?, image: String?, rating: [Rating]?, description: String?) {
         self.ratingType = ratingType
         self.ratingTitle = ratingTitle
         self.userRating = userRating
