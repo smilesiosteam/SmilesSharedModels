@@ -8,12 +8,12 @@
 import Foundation
 //import NetworkingLayer
 
-class ReOrderResponseModel : BaseMainResponse {
-    let reOrderStatus : Bool?
-    let orderType : String?
-    let reOrderStatusCode: String?
-    let restaurentId: String?
-    enum CodingKeys: String, CodingKey {
+public class ReOrderResponseModel : BaseMainResponse {
+    public let reOrderStatus : Bool?
+    public let orderType : String?
+    public let reOrderStatusCode: String?
+    public let restaurentId: String?
+    public enum CodingKeys: String, CodingKey {
 
         case reOrderStatus
         case orderType
@@ -21,7 +21,7 @@ class ReOrderResponseModel : BaseMainResponse {
         case restaurentId
     }
 
-    required init(from decoder: Decoder) throws {
+    required public init(from decoder: Decoder) throws {
         let values = try decoder.container(keyedBy: CodingKeys.self)
         reOrderStatus = try values.decodeIfPresent(Bool.self, forKey: .reOrderStatus)
         orderType = try values.decodeIfPresent(String.self, forKey: .orderType)
