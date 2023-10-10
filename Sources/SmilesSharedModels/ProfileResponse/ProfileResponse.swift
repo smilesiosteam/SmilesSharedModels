@@ -10,7 +10,7 @@ import SmilesUtilities
 
 
 public class ProfileResponse: BaseMainResponse {
-    static let sharedInstance = ProfileResponse()
+    public static let sharedInstance = ProfileResponse()
     
    public var communicationLanguageList: [CommunicationLanguageListSwift]?
    public var nationalitiesList: [NationalitiesListSwift]?
