@@ -9,41 +9,41 @@ import UIKit
 import SmilesUtilities
 
 
-class ProfileResponse: BaseMainResponse {
+public class ProfileResponse: BaseMainResponse {
     static let sharedInstance = ProfileResponse()
     
-    var communicationLanguageList: [CommunicationLanguageListSwift]?
-    var nationalitiesList: [NationalitiesListSwift]?
-    var dateOfBirth: String?
-    var email: String?
-    var expiryDate: String?
-    var gender: String?
-    var lifetimeSavings: Double?
-    var name: String?
-    var nationalityId: Double?
-    var nextTierPointsthreshold: Int?
-    var nextTierRemainingPoints: Int?
-    var phoneNumber: String?
-    var pointsToExpire: Int?
-    var referralCode: String?
-    var referralCodeMsg: String?
-    var rewardsPointsAvailable: Int?
-    var rewardsTier: Int?
-    var tierImageUrl: String?
-    var profilePicUrl: String?
-    var userImage: UIImage?
-    var communicationLanguageId: Int?
-    var onAppStartObjectResponse: OnAppStartObjectResponse?
-    var nextRewardsTier: Int?
-    var lastAccrualPoints: Int?
-    var lastRedeemedPoints: Int?
-    var lastRedemptionDate: String?
-    var lastAccrualDate: String?
-    var coBandCard:String?
-    var inviteFriendText: String?
-    var isOfferSuccessfullyPurchased: Bool?
+   public var communicationLanguageList: [CommunicationLanguageListSwift]?
+   public var nationalitiesList: [NationalitiesListSwift]?
+   public var dateOfBirth: String?
+   public var email: String?
+   public var expiryDate: String?
+   public var gender: String?
+   public var lifetimeSavings: Double?
+   public var name: String?
+   public var nationalityId: Double?
+   public var nextTierPointsthreshold: Int?
+   public var nextTierRemainingPoints: Int?
+   public var phoneNumber: String?
+   public var pointsToExpire: Int?
+   public var referralCode: String?
+   public var referralCodeMsg: String?
+   public var rewardsPointsAvailable: Int?
+   public var rewardsTier: Int?
+   public var tierImageUrl: String?
+   public var profilePicUrl: String?
+   public var userImage: UIImage?
+   public var communicationLanguageId: Int?
+   public var onAppStartObjectResponse: OnAppStartObjectResponse?
+   public var nextRewardsTier: Int?
+   public var lastAccrualPoints: Int?
+   public var lastRedeemedPoints: Int?
+   public var lastRedemptionDate: String?
+   public var lastAccrualDate: String?
+   public var coBandCard:String?
+   public var inviteFriendText: String?
+   public var isOfferSuccessfullyPurchased: Bool?
 
-    var profileImagePlaceholder: String{
+   public var profileImagePlaceholder: String{
         if gender == "F"{
             return "female"
         }
@@ -52,9 +52,9 @@ class ProfileResponse: BaseMainResponse {
         }
     }
     
-    override init() { super.init() }
+   public override init() { super.init() }
     
-    enum CodingKeys: String, CodingKey {
+   public enum CodingKeys: String, CodingKey {
         case communicationLanguageList
         case nationalitiesList
         case dateOfBirth
@@ -125,7 +125,7 @@ class ProfileResponse: BaseMainResponse {
         try super.init(from: decoder)
     }
     
-    func asDictionary() -> [String: Any] {
+   public func asDictionary() -> [String: Any] {
         let encoder = DictionaryEncoder()
         guard let encoded = try? encoder.encode(self) as [String: Any] else {
             return [:]
@@ -133,7 +133,7 @@ class ProfileResponse: BaseMainResponse {
         return encoded
     }
     
-    func getTierStatus() -> String? {
+   public func getTierStatus() -> String? {
         if rewardsTier == 1 {
             return "Gold"
         } else if rewardsTier == 2 {
@@ -143,7 +143,7 @@ class ProfileResponse: BaseMainResponse {
         }
     }
     
-    func getTierBGImage() -> UIImage {
+   public func getTierBGImage() -> UIImage {
         if (rewardsTier == 1) {
             return UIImage(named: "goldRectangle") ?? UIImage()
         } else if rewardsTier == 2 {
@@ -154,7 +154,7 @@ class ProfileResponse: BaseMainResponse {
         
     }
     
-    func getTierImage() -> UIImage {
+   public func getTierImage() -> UIImage {
         if (rewardsTier == 1) {
             return UIImage(named: "goldStar") ?? UIImage()
         } else if rewardsTier == 2 {
@@ -165,7 +165,7 @@ class ProfileResponse: BaseMainResponse {
         
     }
     
-    func getTierTitle() -> String {
+   public func getTierTitle() -> String {
         if (rewardsTier == 1 ) {
             return "GoldTitle".localizedString
         }
@@ -177,7 +177,7 @@ class ProfileResponse: BaseMainResponse {
         }
     }
     
-    func getNextTierTitle() -> String {
+   public func getNextTierTitle() -> String {
         if rewardsTier == 2 {
             return "GoldTitle".localizedString.capitalizingFirstLetter()
         }
@@ -188,7 +188,7 @@ class ProfileResponse: BaseMainResponse {
         }
     }
     
-    func getTierColor() -> UIColor {
+   public func getTierColor() -> UIColor {
         if (rewardsTier == 1){
             return UIColor.tierGoldColor
         }
@@ -200,11 +200,11 @@ class ProfileResponse: BaseMainResponse {
         }
     }
     
-    func getDefaultProfilePic() -> String {
+   public func getDefaultProfilePic() -> String {
         return gender == "F" || gender == "f" ? "female" : "male"
     }
     
-    func getDob() -> String {
+   public func getDob() -> String {
         let dateFormatterGet = DateFormatter()
         dateFormatterGet.dateFormat = "dd/MM/yyyy"
         
@@ -219,15 +219,15 @@ class ProfileResponse: BaseMainResponse {
 
 
 
-struct ProfileMenu: Codable{
+public struct ProfileMenu: Codable{
     
-    var itemId: String?
-    var title: String?
-    var image: String?
-    var imageWithDot: String?
+   public var itemId: String?
+   public var title: String?
+   public var image: String?
+   public var imageWithDot: String?
     
     
-    init(dictionary: [String: Any]) {
+   public init(dictionary: [String: Any]) {
         self.itemId = dictionary["itemId"] as? String ?? ""
         self.title = dictionary["title"] as? String ?? ""
         self.image = dictionary["image"] as? String ?? ""
@@ -236,21 +236,21 @@ struct ProfileMenu: Codable{
     }
 }
 
-class GetUserProfileRequest: Codable {
-    var isIntgParamRequired: Bool?
+public class GetUserProfileRequest: Codable {
+   public var isIntgParamRequired: Bool?
     
-    init() {}
+   public init() {}
 
-    enum CodingKeys: String, CodingKey {
+   public enum CodingKeys: String, CodingKey {
         case isIntgParamRequired
     }
 
-    required init(from decoder: Decoder) throws {
+   public required init(from decoder: Decoder) throws {
         let values = try decoder.container(keyedBy: CodingKeys.self)
         isIntgParamRequired = try values.decodeIfPresent(Bool.self, forKey: .isIntgParamRequired)
     }
 
-    func asDictionary(dictionary: [String: Any]) -> [String: Any] {
+   public func asDictionary(dictionary: [String: Any]) -> [String: Any] {
         let encoder = DictionaryEncoder()
         guard let encoded = try? encoder.encode(self) as [String: Any] else {
             return [:]
