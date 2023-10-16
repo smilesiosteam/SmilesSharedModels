@@ -9,11 +9,11 @@
 import UIKit
 
 
-class BaseSectionModel: NSObject {
-    var sectionCellIdentifier = ""
-    var rowItems: [BaseRowModel] = []
-    var sectionTitle: String = ""
-    var sectionHeight: CGFloat = UITableView.automaticDimension
-    var delegate: Any?
-    var sectionView: UIView?
+public class BaseSectionModel: NSObject {
+    public var sectionCellIdentifier = ""
+    public var rowItems: [BaseRowModel] = []
+    public var sectionTitle: String = ""
+    public var sectionHeight: CGFloat = UITableView.automaticDimension
+    public var delegate: Any?
+    public var sectionView: UIView?
 }
